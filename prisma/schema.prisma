@@ -1,0 +1,19 @@
+datasource db {
+  url      = env("MONGO_URL")
+  provider = "mongodb"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model Filters{
+    id    String @id @default(auto()) @map("_id") @db.ObjectId
+    name  String
+    categories String[]
+}
+
+
+
+
