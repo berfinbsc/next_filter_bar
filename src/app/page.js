@@ -1,11 +1,12 @@
 
 import React from 'react';
-import handler from './api/filters';
+import { getFilters } from './api/filters';
+import FilterBar from './components/FilterBar';
 
 export default function Home () {
 
 const getData = async () => {
-  const data = await handler();
+  const data = await getFilters();
 console.log(data);
 }
 getData();
@@ -15,6 +16,7 @@ getData();
   return (
     <div>
       <h1>Hoşgeldiniz</h1>
+      <FilterBar></FilterBar>
     </div>
   );
 }
