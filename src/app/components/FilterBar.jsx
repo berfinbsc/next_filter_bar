@@ -2,9 +2,16 @@
 import React, { useEffect, useState } from 'react';
 import styles from './FilterMenu.module.css';
 
-const FilterBar = () => {
+const FilterBar = ({data}) => {
 
+  const [filter, setFilter] = useState([]);
 
+  useEffect(() => {
+    if (data) {
+      setFilter(data);
+      console.log(filter);
+    }
+  }, [data]);
 
   const [isOpen, setIsOpen] = useState(null);
   const [checkedCategories, setCheckedCategories] = useState([]);
@@ -21,19 +28,15 @@ const FilterBar = () => {
     }
   };
 
-  const menuItems = [
-    { label: 'Kategori 1', categories: ['Kategori 1.1', 'Kategori 1.2', 'Kategori 1.3'] },
-    { label: 'Kategori 2', categories: ['Kategori 2.1', 'Kategori 2.2', 'Kategori 2.3'] },
-    { label: 'Kategori 3', categories: ['Kategori 3.1', 'Kategori 3.2', 'Kategori 3.3'] },
-  ];
 
   return (
     <div className={styles.filterMenu}>
+      
       <div>
-        {menuItems.map((item, index) => (
+        {filter.map((item, index) => (
           <div key={index}>
             <div className={styles.menuItem} onClick={() => toggleDropdown(index)}>
-              <span>{item.label}</span>
+              <span>{item.name}</span>
               <svg
                 className={`${isOpen === index ? styles.open : ''}`}
                 viewBox="0 0 20 20"

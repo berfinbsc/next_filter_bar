@@ -1,31 +1,33 @@
-
-import React from 'react';
-import { getFilters } from './api/filters';
+'use client';
+import { useEffect, useState } from 'react';
 import FilterBar from './components/FilterBar';
 
-export default function Home () {
+// ...
 
-const getData = async () => {
-  const data = await getFilters();
-console.log(data);
-}
-getData();
+export default function Home() {
+  const [data, setData] = useState([]);
 
-  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch('http://localhost:3000/api/filters');
+        if (!res.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        const filters = await res.json();
+        setData(filters);
+      } catch (error) {
+        console.error('Error fetching filters:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div>
       <h1>Hoşgeldiniz</h1>
-      <FilterBar></FilterBar>
+      <FilterBar data={data} />
     </div>
   );
 }
-
-//prisma shema  OK
-//findMany from prisma OK
-//Bar designed  OK
-// filters(server side package) => FilterBar(client) ?
-//filtreleri listele
-//zustan filtre işlemleri
-//getAll Data =>List All Data
-//dinamik olarak filtrele
