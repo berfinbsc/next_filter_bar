@@ -8,7 +8,6 @@ const FilterBar = ({data}) => {
   const [filter, setFilter] = useState([]);
   const [isOpen, setIsOpen] = useState(null);
   const { selectedFilters, addFilter, removeFilter } = useCategoryStore();
-
   
 
   useEffect(() => {
@@ -18,18 +17,20 @@ const FilterBar = ({data}) => {
     }
   }, [data]);
 
-  
+
+
+
+
   const handleCheckboxChange = (category, filter) => {
     if (selectedFilters[category]?.includes(filter)) {
       removeFilter(category, filter);
-      console.log(selectedFilters);
     } 
     
     else {
       addFilter(category, filter);
-      console.log(selectedFilters);
-
     }
+    console.log(selectedFilters);
+
   };
 
 

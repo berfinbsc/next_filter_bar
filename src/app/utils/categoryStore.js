@@ -5,6 +5,8 @@ import {create, set} from 'zustand';
 const useCategoryStore = create(set => ({
     selectedFilters: {},
     
+    //kategori ? varsa önceki degerı kopyala yenı filter ekle
+    //           yoksa category : filter ekle
     addFilter: (category, filter) => set(state => ({
       selectedFilters: {
         ...state.selectedFilters,
