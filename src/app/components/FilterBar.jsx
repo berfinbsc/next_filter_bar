@@ -1,10 +1,15 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import styles from './FilterMenu.module.css';
+import useCategoryStore from '../utils/categoryStore';
 
 const FilterBar = ({data}) => {
 
   const [filter, setFilter] = useState([]);
+  const [isOpen, setIsOpen] = useState(null);
+  const { selectedFilters, addFilter, removeFilter } = useCategoryStore();
+
+  
 
   useEffect(() => {
     if (data) {
@@ -13,20 +18,29 @@ const FilterBar = ({data}) => {
     }
   }, [data]);
 
-  const [isOpen, setIsOpen] = useState(null);
-  const [checkedCategories, setCheckedCategories] = useState([]);
+  
+  const handleCheckboxChange = (category, filter) => {
+    if (selectedFilters[category]?.includes(filter)) {
+      removeFilter(category, filter);
+      console.log(selectedFilters);
+    } 
+    
+    else {
+      addFilter(category, filter);
+      console.log(selectedFilters);
+
+    }
+  };
+
+
+
+
 
   const toggleDropdown = (index) => {
     setIsOpen(isOpen === index ? null : index);
   };
 
-  const handleCheckboxChange = (category) => {
-    if (checkedCategories.includes(category)) {
-      setCheckedCategories(checkedCategories.filter((c) => c !== category));
-    } else {
-      setCheckedCategories([...checkedCategories, category]);
-    }
-  };
+ 
 
 
   return (
@@ -55,11 +69,11 @@ const FilterBar = ({data}) => {
                   <div
                     key={catIndex}
                     className={styles.category}
-                    onClick={() => handleCheckboxChange(category)}
+                    onClick={() => handleCheckboxChange(item.name, category)}
                   >
                     <div
                       className={`${styles.checkbox} ${
-                        checkedCategories.includes(category) ? styles.checked : ''
+                        selectedFilters[item.name]?.includes(category) ? styles.checked : ''
                       }`}
                     />
                     {category}

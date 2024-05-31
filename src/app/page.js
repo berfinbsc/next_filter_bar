@@ -2,8 +2,6 @@
 import { useEffect, useState } from 'react';
 import FilterBar from './components/FilterBar';
 
-// ...
-
 export default function Home() {
   const [data, setData] = useState([]);
 
