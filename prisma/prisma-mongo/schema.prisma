@@ -1,11 +1,16 @@
+
+
+generator client {
+  provider = "prisma-client-js"
+    output   = "../prisma-mongo-client"
+
+}
 datasource db {
   url      = env("MONGO_URL")
   provider = "mongodb"
 }
 
-generator client {
-  provider = "prisma-client-js"
-}
+
 
 
 model Filters{
@@ -13,7 +18,6 @@ model Filters{
     name  String
     categories String[]
 }
-
 
 
 

@@ -8,6 +8,8 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const res2 = await fetch('http://localhost:3000/api/products');
+        console.log(res2);
         const res = await fetch('http://localhost:3000/api/filters');
         if (!res.ok) {
           throw new Error('Failed to fetch data');
