@@ -21,4 +21,5 @@ model CARKART {
   CARUNVAN3        String?
   CAROZKOD3        String?
   CAROZKOD4        String?
+ 
 }
