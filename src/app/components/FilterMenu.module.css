@@ -1,123 +1,172 @@
 .filterMenu {
-    background-color: #fff;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    padding: 1.5rem;
-  }
-  
-  .filterMenu h2 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    color: #334155;
-  }
-  
-  .menuItem {
-    width: 100%;
-    text-align: left;
-    padding: 0.75rem 1rem;
-    border-radius: 0.5rem;
-    background-color: #f9fafb;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .menuItem:hover {
-    background-color: #e5e7eb;
-    color: #1e293b;
-  }
-  
-  .menuItem svg {
-    width: 1.25rem;
-    height: 1.25rem;
-    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
-    color: #64748b;
-  }
-  
-  .menuItem svg.open {
-    transform: rotate(180deg);
-  }
-  
-  .dropdown {
-    background-color: #fff;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    margin-top: 0.5rem;
-  }
-  
-  .category {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 0;
-    cursor: pointer;
-  }
-  
-  .checkbox {
-    width: 1.25rem;
-    height: 1.25rem;
-    border-radius: 50%;
-    border: 2px solid #64748b;
-    margin-right: 0.75rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-  }
-  
-  .checkbox::after {
-    content: "";
-    width: 0.75rem;
-    height: 0.75rem;
-    border-radius: 50%;
-    background-color: transparent;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  .checkbox.checked {
-    border-color: #1e293b;
-  }
-  
-  .checkbox.checked::after {
-    background-color: #1e293b;
-  }
-  
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+}
+
+.filterMenu h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #334155;
+}
+
+.menuItem {
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #f9fafb;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.menuItem:hover {
+  background-color: #e5e7eb;
+  color: #1e293b;
+}
+
+.menuItem svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+  color: #64748b;
+}
+
+.menuItem svg.open {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-top: 0.5rem;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  border: 2px solid #64748b;
+  margin-right: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.checkbox::after {
+  content: "";
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.checkbox.checked {
+  border-color: #1e293b;
+}
+
+.checkbox.checked::after {
+  background-color: #1e293b;
+}
 
 
 
 
-  
-  .productslist {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .productcard {
-    width: calc(25% - 1rem);
-    margin: 0.5rem;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: #fff;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  }
-  
-  .productcard:hover {
-    transform: scale(1.05);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  }
-  
-  .productcard h2 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainContent {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+}
+
+
+
+
+
+
+.category {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  border: 2px solid #64748b;
+  margin-right: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.checkbox::after {
+  content: "";
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.checkbox.checked {
+  border-color: #1e293b;
+}
+
+.checkbox.checked::after {
+  background-color: #1e293b;
+}
+.productList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: calc(100% - 270px); /* 250px filter menu + 20px margin */
+}
+.productCard {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
+  width: 200px;
+  text-align: center;
+}
+
+.productCard:hover {
+  transform: scale(1.05);
+}
+
+.productCard h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.productCard p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}

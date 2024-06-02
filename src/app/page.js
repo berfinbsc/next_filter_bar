@@ -2,44 +2,54 @@
 import { useEffect, useState } from 'react';
 import FilterBar from './components/FilterBar';
 import ProductsList from './components/ProductsList';
+import styles from './components/FilterMenu.module.css';
 
 export default function Home() {
-  const [data, setData] = useState([]);
-const [data2, setData2] = useState([]);
+ 
+
+  const [filters, setFilters] = useState([]);
+  const [products, setProducts] = useState([]);
+
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchFilters = async () => {
       try {
         const res = await fetch('http://localhost:3000/api/filters');
-        const res2 = await fetch('http://localhost:3000/api/products');
-
         if (!res.ok) {
           throw new Error('Failed to fetch filters');
         }
-        if (!res2.ok) {
-          throw new Error('Failed to fetch products');
-        }
-        const filters = await res.json();
-        const products = await res2.json();
-        
-        setData(filters);
-        setData2(products);
-
-        console.log(filters);
-        console.log(products);
-
+        const data = await res.json();
+        setFilters(data);
       } catch (error) {
         console.error('Error fetching filters:', error);
       }
     };
 
-    fetchData();
+    const fetchProducts = async () => {
+      try {
+        const res = await fetch('http://localhost:3000/api/products');
+        if (!res.ok) {
+          throw new Error('Failed to fetch products');
+        }
+        const data = await res.json();
+        setProducts(data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    fetchFilters();
+    fetchProducts();
   }, []);
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>Hoşgeldiniz</h1>
-      <FilterBar data={data} />
-      <ProductsList products={data2} />
+      <div className={styles.mainContent}>
+        <FilterBar data={filters} />
+        <ProductsList products={products} />
+      </div>
     </div>
   );
+
+
 }

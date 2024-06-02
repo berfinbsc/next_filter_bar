@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styles from './FilterMenu.module.css';
 
 const ProductCard = ({ product }) => {
-  const { CARUNVAN, CARUNVAN3, CAROZKOD3, CAROZKOD4, CARGRADE, CARCATEGORY } = product;
 const [productCard, setProductCard] = useState({});
 
 useEffect(()=>{
@@ -17,8 +16,7 @@ useEffect(()=>{
 },[product])
 
   return (
-    <div className={styles.productcard}>
-        <h1>Product Card</h1>
+    <div className={styles.productCard}>
       <h2>{productCard.CARUNVAN}</h2>
       <p>{productCard.CARUNVAN3}</p>
       <p>{productCard.CAROZKOD3}</p>
