@@ -17,12 +17,11 @@ useEffect(()=>{
 
   return (
     <div className={styles.productCard}>
-      <h2>{productCard.CARUNVAN}</h2>
-      <p>{productCard.CARUNVAN3}</p>
-      <p>{productCard.CAROZKOD3}</p>
-      <p>{productCard.CAROZKOD4}</p>
-      <p>{productCard.CARGRADE}</p>
+      <h2>{productCard.STKCINSI}</h2>
+      {productCard.STKOZKOD1 ? <p>Stokta</p> : <p>Stok Tükendi</p>}
+      <p>{productCard.CARGRADE }</p>
       <p>{productCard.CARCATEGORY}</p>
+     
     </div>
   );
 };

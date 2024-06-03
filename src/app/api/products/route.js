@@ -26,7 +26,7 @@ export async function GET(request) {
 
         if (!filters || Object.keys(filters).length === 0) {
             //filtre boş ise butun urunlerı getır
-            const allProducts = await prisma.cARKART.findMany();
+            const allProducts = await prisma.sTKKART.findMany();
             console.log(allProducts);
             return NextResponse.json(allProducts);
           }
@@ -35,7 +35,7 @@ export async function GET(request) {
             const { category, filter } = f;
 
             // Filtreye göre ürünleri getir
-            const products = await prisma.cARKART.findMany({
+            const products = await prisma.sTKKART.findMany({
                 where: {
                     cargrade:category,
                     carcategory:filter

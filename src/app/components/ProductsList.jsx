@@ -19,7 +19,7 @@ useEffect(() =>{
   return (
     <div className={styles.productList}>
       {productList.map((product) => (
-        <ProductCard key={product.CARUNVAN} product={product} />
+        <ProductCard key={product.STKKOD} product={product} />
       ))}
     </div>
   );

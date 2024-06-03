@@ -15,11 +15,10 @@ datasource db {
 
 }
 
-model CARKART {
-  CARKOD           String     @id
-  CARUNVAN         String?
-  CARUNVAN3        String?
-  CAROZKOD3        String?
-  CAROZKOD4        String?
- 
+model STKKART {
+  STKKOD           String     @id
+  STKCINSI         String?
+  STKOZKOD1        String?
+  CARGRADE      String?
+  CARCATEGORY String?
 }

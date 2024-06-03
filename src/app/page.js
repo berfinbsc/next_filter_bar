@@ -14,7 +14,6 @@ export default function Home() {
   useEffect(() => {
     const fetchFilters = async () => {
       try {
-        console.log(selectedFilters);
         const res = await fetch('http://localhost:3000/api/filters');
         if (!res.ok) {
           throw new Error('Failed to fetch filters');
@@ -34,14 +33,25 @@ useEffect(() => {
 
   const fetchProducts = async () => {
     try {
-      const params =new URLSearchParams(selectedFilters);
-      console.log(params.toString());
-      const res = await fetch(`http://localhost:3000/api/products/${params.toString()}`);
+      console.log(selectedFilters);
+
+      const params = new URLSearchParams();
+        console.log(params);
+      // Convert selectedFilters to query string format
+      Object.keys(selectedFilters).forEach((key) => {
+        selectedFilters[key].forEach((value) => {
+          params.append(key, value);
+        });
+      });
+console.log(params);
+console.log(params.toString());
+      const res = await fetch(`http://localhost:3000/api/products?${params.toString()}`);
      console.log(res);
       if (!res.ok) {
         throw new Error('Failed to fetch products');
       }
       const data = await res.json();
+
       setProducts(data);
     } catch (error) {
       console.error('Error fetching products:', error);
