@@ -19,7 +19,7 @@ export async function GET() {
 
 
 
-export async function GET(request) {
+export async function POST(request) {
     try {
         const filters = request.body; // İsteğin gövdesinden filtreleri al
         console.log(filters);

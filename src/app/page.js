@@ -33,19 +33,15 @@ useEffect(() => {
 
   const fetchProducts = async () => {
     try {
-      console.log(selectedFilters);
 
-      const params = new URLSearchParams();
-        console.log(params);
-      // Convert selectedFilters to query string format
-      Object.keys(selectedFilters).forEach((key) => {
-        selectedFilters[key].forEach((value) => {
-          params.append(key, value);
-        });
+      const res = await fetch('http://localhost:3000/api/products',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(selectedFilters),    
       });
-console.log(params);
-console.log(params.toString());
-      const res = await fetch(`http://localhost:3000/api/products?${params.toString()}`);
+
      console.log(res);
       if (!res.ok) {
         throw new Error('Failed to fetch products');
