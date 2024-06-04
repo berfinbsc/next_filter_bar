@@ -1,48 +1,37 @@
-'use client';
 import React, { useEffect, useState } from 'react';
 import styles from './FilterMenu.module.css';
 import useCategoryStore from '../utils/categoryStore';
 
-const FilterBar = ({data}) => {
-
+const FilterBar = ({ data }) => {
   const [filter, setFilter] = useState([]);
   const [isOpen, setIsOpen] = useState(null);
-  const { selectedFilters, addFilter, removeFilter } = useCategoryStore();
-  
+  const { selectedFilters, updateFilter } = useCategoryStore();
 
   useEffect(() => {
     if (data) {
       setFilter(data);
-      console.log(filter);
     }
   }, [data]);
 
-
-
-
-
   const handleCheckboxChange = (category, filter) => {
-    if (selectedFilters[category]?.includes(filter)) {
-      removeFilter(category, filter);
-    } 
-    
-    else {
-      addFilter(category, filter);
+    try {
+      updateFilter(category, filter);
+      console.log(selectedFilters);
+      
+    } catch (error) {
+      console.log(error);
     }
-    console.log(selectedFilters);
-
   };
-
-
-
-
 
   const toggleDropdown = (index) => {
     setIsOpen(isOpen === index ? null : index);
   };
 
- 
 
+  const isFilterSelected = (category, filter) => {
+    const categoryObj = selectedFilters.find((item) => item.category === category);
+    return categoryObj ? categoryObj.filter.includes(filter) : false;
+  };
 
   return (
     <div className={styles.filterMenu}>
@@ -64,15 +53,15 @@ const FilterBar = ({data}) => {
           </div>
           {isOpen === index && (
             <div className={styles.dropdown}>
-              {item.categories.map((category, catIndex) => (
+              {item.categories.map((category, categoryIndex) => (
                 <div
-                  key={catIndex}
+                  key={categoryIndex}
                   className={styles.category}
                   onClick={() => handleCheckboxChange(item.name, category)}
                 >
-                  <div
+              <div
                     className={`${styles.checkbox} ${
-                      selectedFilters[item.name]?.includes(category) ? styles.checked : ''
+                      isFilterSelected(item.name, category) ? styles.checked : ''
                     }`}
                   />
                   {category}
@@ -87,13 +76,3 @@ const FilterBar = ({data}) => {
 };
 
 export default FilterBar;
-
-
-
-//veri tabanından gercek kategorıelrı alma
-//Listeleme
-//secılen kategorılerı zustand ıle guncelleme-tutma
-//urunlerı cekme
-//secılı fıltre varsa? yoksa ?
-//urunlerı lısteleme
-//her categorı degsıtıgınde yıne urun lısteleme

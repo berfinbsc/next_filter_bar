@@ -9,7 +9,6 @@ useEffect(()=>{
         if(product){
             setProductCard(product);
         }
-        console.log(productCard);
     } catch (error) {
         console.error(error);
     }
