@@ -14,11 +14,12 @@ export default function Home() {
   useEffect(() => {
     const fetchFilters = async () => {
       try {
-        const res = await fetch('http://localhost:3000/api/filters');
+        const res = await fetch('/api/filters');
         if (!res.ok) {
           throw new Error('Failed to fetch filters');
         }
         const data = await res.json();
+        console.log(data);
         setFilters(data);
       } catch (error) {
         console.error('Error fetching filters:', error);
@@ -34,20 +35,14 @@ useEffect(() => {
   const fetchProducts = async () => {
     try {
 
-      const res = await fetch('http://localhost:3000/api/products',{
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(selectedFilters),    
-      });
+      const res = await fetch('api/products');
 
      console.log(res);
       if (!res.ok) {
         throw new Error('Failed to fetch products');
       }
       const data = await res.json();
-
+      console.log(data);
       setProducts(data);
     } catch (error) {
       console.error('Error fetching products:', error);

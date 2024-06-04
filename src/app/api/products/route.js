@@ -3,22 +3,22 @@ import { PrismaClient } from '../../../../prisma/prisma-sql-client';
 const prisma = new PrismaClient();
 
 
-/*
+
 export async function GET() {
     try {
-        const carkart = await prisma.cARKART.findMany();
-        console.log(carkart);
-        return NextResponse.json(carkart);
+        const products = await prisma.sTKKART.findMany();
+        console.log(products);
+        return NextResponse.json(products);
     } catch (error) {
         console.error('Error fetching filters:', error);
         return NextResponse.json({ message: 'Error fetching filters' }, { status: 500 });
     }
 }
  
-*/
 
 
 
+/*
 export async function POST(request) {
     try {
         const filters = request.body; // İsteğin gövdesinden filtreleri al
@@ -57,5 +57,5 @@ export async function POST(request) {
 }
 
 
-
+*/
 
