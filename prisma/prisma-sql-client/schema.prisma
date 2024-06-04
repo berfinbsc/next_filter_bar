@@ -1,0 +1,22 @@
+// Model Güncellendiğinde yapılacaklar:
+// 1-" npx prisma generate " bunu terminale yaz (enter!)
+// 2- VS Codu kapatıp yeniden aç.
+// ! Sırayla yaparsan gücelleme gerçekleşir.
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../prisma-sql-client"
+}
+
+datasource db {
+  url      = env("DATABASE_URL")
+  provider = "sqlserver"
+}
+
+model STKKART {
+  STKKOD      String  @id
+  STKCINSI    String?
+  STKOZKOD1   String?
+  CARGRADE    String?
+  CARCATEGORY String?
+}
